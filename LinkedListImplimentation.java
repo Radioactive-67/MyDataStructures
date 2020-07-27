@@ -1,7 +1,7 @@
 package MyDS;
 import java.util.Scanner;
 public class LinkedListImplimentation {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         myLinkedList<Integer> x = new myLinkedList<>();
         
         for(int i=1;i<=20;i++){
@@ -24,5 +24,7 @@ public class LinkedListImplimentation {
         x.get(y);
         System.out.println("The Final list is :");
         x.print();
+        System.out.println("The Size of the edited LinkedList is : ");
+        System.out.println(x.size());
     }
 }

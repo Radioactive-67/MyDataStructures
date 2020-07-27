@@ -3,7 +3,7 @@ package MyDS;
 public class myLinkedList<E> {
     Node<E> head;
     
-    void add(E data){
+    public void add(E data){
         Node<E> toAdd = new Node<E>(data);
         if(isEmpty()){
             head = toAdd ;
@@ -15,7 +15,7 @@ public class myLinkedList<E> {
         }
         temp.next = toAdd;
     }
-    void get(int i ){
+    public void get(int i ){
         Node<E> temp = head;
         int k=0;
         while(k!=i){
@@ -33,9 +33,21 @@ public class myLinkedList<E> {
         }
         temp.data=x;
     }
-    Node<E> remove(int i){
+    public Node<E> remove(int i) throws Exception{
        Node<E> temp = head;
        Node<E> temp2 = head;
+       
+       if(temp == null){
+           throw new Exception("Data Structure is already empty : Nothing to Remove");
+       }
+       
+       if(temp.next == null){
+           Node<E> toRemove = head;
+           head = null;
+           return toRemove;
+           
+       }
+       
        int k=0;
        while(k!=i){
             temp=temp.next ;
@@ -60,7 +72,22 @@ public class myLinkedList<E> {
         System.out.println();
     }
     
-    boolean isEmpty(){
+    public int size(){
+        int x = 0;
+        if(isEmpty()){
+            return 0;
+        }
+        else{
+            Node<E> temp = head;
+            while(temp!=null){
+                x++;
+                temp = temp.next;
+            }
+            return x;
+        }
+    }
+    
+    public boolean isEmpty(){
         return head == null;
     }
     
